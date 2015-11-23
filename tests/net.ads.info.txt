@@ -1,0 +1,9 @@
+# net ads info
+LDAP server: 10.11.12.13
+LDAP server name: my-dc1.cas.example.net.au
+Realm: CAS.EXAMPLE.NET.AU
+Bind Path: dc=CAS,dc=EXAMPLE,dc=NET,dc=AU
+LDAP port: 389
+Server time: Wed, 18 Nov 2015 16:33:27 AEDT
+KDC server: 10.11.12.13
+Server time offset: 0
