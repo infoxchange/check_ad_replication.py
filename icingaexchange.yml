@@ -23,6 +23,7 @@ releases:
         checksum: 11d3723c88fd925445a6c9c0700f3219
       -
         name: stack_outline.php
-        url: "https://github.com/infoxchange/opstools/blob/master/nagios/pnp4nagios-templates/stack_outline.php"
+        url: "https://raw.githubusercontent.com/infoxchange/opstools/master/nagios/pnp4nagios-templates/stack_outline.php"
         description: "PNP4Nagios template helper required for check_ad_replication.php"
+        checksum: 3882089bc52d52e61fa2fee40a27f822
 
