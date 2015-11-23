@@ -1,0 +1,28 @@
+name: check_ad_replication.py
+description: "file:///README.md"
+url: "https://github.com/infoxchange/check_ad_replication.py"
+tags: Samba, Active Directory, AD, Domain Controller
+vendor: Linux, Unix
+target: Groupware, 
+type: Plugin
+license: gplv2
+releases: 
+  - 
+    name: 1.0
+    description: "1.0 Release"
+    files: 
+      - 
+        name: check_ad_replication.py
+        url: "file:///check_ad_replication.py"
+        description: "Nagios plugin for checking that a Samba Active Directory replication is working"
+        checksum: 514682bab5ebba89271ad797d06ac8e1
+      -
+        name: check_ad_replication.php
+        url: "file:///check_ad_replication.php"
+        description: "PNP4Nagios template for this plugin"
+        checksum: 11d3723c88fd925445a6c9c0700f3219
+      -
+        name: stack_outline.php
+        url: "https://github.com/infoxchange/opstools/blob/master/nagios/pnp4nagios-templates/stack_outline.php"
+        description: "PNP4Nagios template helper required for check_ad_replication.php"
+
