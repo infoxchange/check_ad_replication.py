@@ -46,15 +46,50 @@ If everything is OK, it shows the elapsed time of the most recent replication fo
 
 `CRITICAL: Realm: cas.example.net.au Failing: my-dc2 since 11 mins, my-dc3 since 11 mins, my-dc4 since 11 mins(!!), Still OK: my-win-ad1 as of 11 mins|ok=1, fail=3`
 
+### Sample Configuration
+
+This plugin is normally launched through NRPE. It needs to run as the 'root' user, and 'sudo' can be used to achieve this
+
+On the Nagios server, create a service cfg (example only):
+
+```
+define service {
+  service_description            ad_replication
+  use                            generic-service
+  host_name                      my-smb-server
+  check_command                  check_nrpe!check_ad_replication
+}
+```
+(the command cfg for 'check_nrpe' should already exist)
+
+Add to the file `/etc/nagios/nrpe.cfg` on the Nagios client:
+
+```
+command[check_ad_replication] = /usr/bin/sudo  /usr/lib64/nagios/plugins/check_ad_replication.py
+```
+(don't forget to restart nrpe after modifying the nrpe.cfg file)
+
+Add to the file `/etc/sudoers` on the Nagios client:
+
+```
+Defaults:nrpe !requiretty
+Defaults:nrpe syslog_goodpri=debug
+nrpe    ALL=(ALL)    NOPASSWD: /usr/lib64/nagios/plugins/check_ad_replication.py ""
+```
+
+Some Linux distributions use the username 'nagios' instead of 'nrpe'
+
 ### Performance Data
 
 This plugin generates some summary information as Nagios performance data. This can be graphed using PNP4Nagios.
 
 Graphs are generated for:
+
 * the number of AD peers which are failing to replicate to this server
   -- and --
 * the number of AD peers which are working (OK).
 
 A PNP4Nagios template is provided. This template requires the stack_outline.php file to be present in the same directory as the template file check_ad_replication.php
 stack_outline.php is available from:
+
 * https://github.com/infoxchange/opstools/blob/master/nagios/pnp4nagios-templates/stack_outline.php
