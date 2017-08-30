@@ -28,7 +28,7 @@ import datetime
 # for debugging:
 import pprint
 
-version = 'v1.0 $Id$'
+version = 'v1.1 $Id$'
 
 #nagios return codes
 UNKNOWN = 3
@@ -37,6 +37,7 @@ WARNING = 1
 CRITICAL = 2
 
 verbose=0
+debug=0
 exit_code = 0
 now = datetime.datetime.now(dateutil.tz.tzlocal())
 message=''
@@ -58,6 +59,7 @@ def get_realm():
     else:
         output = subprocess.check_output(['net', 'ads','info'])
     for line in output.splitlines():
+        print_debug(line)
         fields = re_split.split(line)
         if fields[0].lower() == 'realm':
             realm = fields[1].lower()
@@ -67,6 +69,7 @@ def get_realm():
             ldap_server_name = fields[1]
         elif fields[0].lower() == 'ldap server':
             ldap_server_ip = fields[1]
+    print_debug("realm=%s bind_path=%s" % (realm,bind_path) )
     return(realm,bind_path,ldap_server_name,ldap_server_ip)
 
 def parse_date(date_str):
@@ -82,6 +85,11 @@ def parse_date(date_str):
         how_long="%d mins" % int(date_delta.total_seconds() / 60)
     return (date_obj,how_long)
 
+def print_debug(msg):
+    global debug
+    if debug:
+        sys.stderr.write(msg+"\n")
+
 def print_v(msg):
     global verbose
     if verbose:
@@ -90,15 +98,15 @@ def print_v(msg):
 def usage():
     print('Usage: ' + sys.argv[0] + " [-v] [-V]")
     print("""
-    -v, --verbose  ... verbose messages, print full response
+    -v, --verbose  ... verbose messages, print detailed summary
     -H, --host     ... expect this host as the LDAP server reported by 'net ads info'
     -I, --ip       ... expect this ip address as the LDAP server reported by 'net ads info'
     """)
 
 def command_args(argv):
-    global verbose, expect_host, expect_ip, test_file
+    global verbose, debug, expect_host, expect_ip, test_file
     try:
-        opts, args = getopt.getopt(argv, 'vhVH:I:T:', ['verbose', 'version', 'help', 'host=', 'ip='])
+        opts, args = getopt.getopt(argv, 'vdhVH:I:T:', ['verbose', 'debug', 'version', 'help', 'host=', 'ip='])
     except getopt.GetoptError:
         usage()
         sys.exit(3)
@@ -111,6 +119,8 @@ def command_args(argv):
             sys.exit(1)
         elif opt in ('-v', '--verbose'):
             verbose = 1
+        elif opt in ('-d', '--debug'):
+            debug = 1
         elif opt in ('-H','--host'):
             expect_host = arg
         elif opt in ('-I','--iphost'):
@@ -136,7 +146,7 @@ if expect_host is not None and not ( \
         ldap_server_name == expect_host ):
     message += ', LDAP server is: %s, expected: %s (!!)' % ( ldap_server_name, expect_host )
     exit_code=2
-    
+
 if expect_ip is not None and expect_ip != ldap_server_ip:
     message += ', LDAP server is: %s, expected: %s (!!)' % ( ldap_server_ip, expect_ip )
     exit_code=2
@@ -146,11 +156,11 @@ if test_file:
 else:
     output = subprocess.check_output(['samba-tool', 'drs','showrepl'])
 
-re_object = re.compile(r"([^\s]*)"+bind_path,re.I)
-re_object_bad = re.compile(r"([^\s]*)..=",re.I)
+re_object = re.compile(r"^([^\s]*)"+bind_path,re.I)
+re_object_bad = re.compile(r"^([^\s]*)..=",re.I)
 re_start_section=re.compile(r"^===*\s*(.*)")
 re_last_success=re.compile(r"Last success @\s*(.*)")
-re_peer_name = re.compile(r"([^ \\]*)\\([-A-Z0-9]+) +via|Server DNS name :\s*([-A-Z0-9]+)")
+re_peer_name = re.compile(r"([^ \\]*)\\([-A-Z0-9]+) +via|Server DNS name :\s*([-A-Za-z0-9]+)|NTDS DN: CN=NTDS Settings[^, =]*,CN=([-A-Za-z0-9]+)")
 re_success=re.compile(r"Last attempt @\s*(.*) (was successful|failed)(, (.*))?")
 re_failure=re.compile(r"Last attempt @\s*(.*) consecutive failure")
 
@@ -198,11 +208,14 @@ for line in output.splitlines():
             object_fail[section] = {}
         if section not in object_ok:
             object_ok[section] = {}
+        print_debug("found section %s in %s" % (section, line))
         continue
 
     match = re_object.search(line)
     if match:
+        peer_name = 'unknown'
         ad_object = match.group(1)
+        print_debug("found object '%s' in %s" % (ad_object, line) )
         if ad_object == '':
             ad_object='DC=...'
         if not ad_object in ad_objects:
@@ -213,6 +226,7 @@ for line in output.splitlines():
             object_fail[section][ad_object] = 0
         continue
     elif re_object_bad.search(line):
+        peer_name = 'unknown'
         print_v("object not in my domain: %s"%line)
         ad_objects_bad[line.strip()]=1
 
@@ -224,12 +238,17 @@ for line in output.splitlines():
             nt_domains[nt_domain] = 1
         elif match.group(3):
             peer_name = match.group(3).lower()
+        elif match.group(4):
+            peer_name = match.group(4).lower() + ' (stale NTDS)'
+        else:
+            peer_name = 'unknown'
         if not peer_name in ad_peers:
             ad_peers[peer_name]=1
         if not peer_name in peer_ok[section]:
             peer_ok[section][peer_name] = 0
         if not peer_name in peer_fail[section]:
             peer_fail[section][peer_name] = 0
+        print_debug("found peer %s in %s" % (peer_name, line))
         continue
 
     last_result = re_success.search(line)
@@ -246,7 +265,7 @@ for line in output.splitlines():
     # if peer is OK, we want to know the OLDEST recent success
     # BUT we want to distingush the 2 above cases
     if re_last_success.search(line):
-        result = re_last_success.search(line) 
+        result = re_last_success.search(line)
         last_when_str = result.group(1)
         last_when_t   = parse_date(last_when_str)
 
@@ -282,9 +301,9 @@ ok_peers=list()
 
 # Inbound replication - alert on this
 for peer_name in sorted(ad_peers.keys()):
-    if peer_fail['in'][peer_name] > 0:
+    if peer_name in peer_oldest_fail['in'] and peer_fail['in'][peer_name] > 0:
         failing_peers.append(peer_name+' since '+peer_oldest_fail['in'][peer_name][1])
-    else:
+    elif peer_name in peer_oldest_ok['in']:
         ok_peers.append(peer_name+' as of '+peer_oldest_ok['in'][peer_name][1])
 
 if len(failing_peers) > 0:
@@ -331,7 +350,10 @@ for section in sorted(peer_ok.keys()):
             result_full+= "   %-12s failing since %s\n" % ( peer_name,peer_oldest_fail[section][peer_name][1] )
         if peer_name in peer_oldest_ok[section]:
             result_full+= "   %-12s ok as at %s\n" % ( peer_name,peer_oldest_ok[section][peer_name][1] )
-    result_full += "   Objects:\n"
+        if peer_name in peer_ok[section] and peer_ok[section][peer_name]==0 and peer_name in peer_fail[section] and peer_fail[section][peer_name]==0:
+            result_full+="   %-12s\n" % ( peer_name )
+    if object_ok[section] or object_fail[section]:
+        result_full += "   Objects:\n"
     for ad_object in ad_objects.keys():
         if ad_object in object_ok[section] or ad_object in object_fail[section]:
           result_full += '      %-28s' % ad_object

@@ -1,0 +1,337 @@
+Example\MY-DC1
+DSA Options: 0x00000001
+DSA object GUID: 00000000-0000-0000-0000-00000000000
+DSA invocationId: 00000000-0000-0000-0000-00000000000
+
+==== INBOUND NEIGHBORS ====
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	NTDS DN: CN=NTDS Settings\0ADEL:00000000-0000-0000-0000-000000000000,CN=MY-TEST1\0ADEL:00000000-0000-0000-0000-000000000000,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST failed, result 2 (WERR_FILE_NOT_FOUND)
+		26 consecutive failure(s).
+		Last success @ Wed Aug 30 09:05:35 2017 AEST
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:27 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:27 2017 AEST
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:26 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:26 2017 AEST
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:21 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:21 2017 AEST
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:29 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:29 2017 AEST
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:37 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:37 2017 AEST
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:10 2017 AEST
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	NTDS DN: CN=NTDS Settings\0ADEL:00000000-0000-0000-0000-000000000000,CN=MY-TEST1\0ADEL:00000000-0000-0000-0000-000000000000,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:10 2017 AEST failed, result 2 (WERR_FILE_NOT_FOUND)
+		26 consecutive failure(s).
+		Last success @ Wed Aug 30 09:05:35 2017 AEST
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:11 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:11 2017 AEST
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:11 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:11 2017 AEST
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:11 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:11 2017 AEST
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:11 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:11 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:13 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:13 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:23 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:23 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:26 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:26 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:38:12 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:38:12 2017 AEST
+
+==== OUTBOUND NEIGHBORS ====
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	NTDS DN: CN=NTDS Settings\0ADEL:00000000-0000-0000-0000-000000000000,CN=MY-TEST1,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:36 2017 AEST failed, result 2 (WERR_FILE_NOT_FOUND)
+		799 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=ForestDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:26 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:26 2017 AEST
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	NTDS DN: CN=NTDS Settings\0ADEL:00000000-0000-0000-0000-000000000000,CN=MY-TEST1,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:36 2017 AEST failed, result 2 (WERR_FILE_NOT_FOUND)
+		799 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:36 2017 AEST failed, result 1225 (WERR_CONNECTION_REFUSED)
+		2 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=DomainDnsZones,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 10:44:36 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 10:44:36 2017 AEST
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+CN=Schema,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-WIN-AD1 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:26 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:26 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC3 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC2 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ Wed Aug 30 11:39:27 2017 AEST was successful
+		0 consecutive failure(s).
+		Last success @ Wed Aug 30 11:39:27 2017 AEST
+
+DC=cas,DC=example,DC=net,DC=au
+	Example\MY-DC4 via RPC
+		DSA object GUID: 00000000-0000-0000-0000-00000000000
+		Last attempt @ NTTIME(0) was successful
+		0 consecutive failure(s).
+		Last success @ NTTIME(0)
+
+==== KCC CONNECTION OBJECTS ====
+
+Connection --
+	Connection name: 00000000-0000-0000-0000-00000000000
+	Enabled        : TRUE
+	Server DNS name : my-dc3.aus.example.net.au
+	Server DN name  : CN=NTDS Settings,CN=MY-DC3,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		TransportType: RPC
+		options: 0x00000001
+Warning: No NC replicated for Connection!
+Connection --
+	Connection name: 00000000-0000-0000-0000-00000000000
+	Enabled        : TRUE
+	Server DNS name : my-dc4.aus.example.net.au
+	Server DN name  : CN=NTDS Settings,CN=MY-DC4,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		TransportType: RPC
+		options: 0x00000001
+Warning: No NC replicated for Connection!
+Connection --
+	Connection name: 00000000-0000-0000-0000-00000000000
+	Enabled        : TRUE
+	Server DNS name : my-dc2.aus.example.net.au
+	Server DN name  : CN=NTDS Settings,CN=MY-DC2,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		TransportType: RPC
+		options: 0x00000001
+Warning: No NC replicated for Connection!
+Connection --
+	Connection name: 00000000-0000-0000-0000-00000000000
+	Enabled        : TRUE
+	Server DNS name : my-win-ad1.aus.example.net.au
+	Server DN name  : CN=NTDS Settings,CN=MY-WIN-AD1,CN=Servers,CN=Example,CN=Sites,CN=Configuration,DC=cas,DC=example,DC=net,DC=au
+		TransportType: RPC
+		options: 0x00000001
+Warning: No NC replicated for Connection!
